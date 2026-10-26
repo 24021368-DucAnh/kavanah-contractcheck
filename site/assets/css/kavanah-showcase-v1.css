@@ -1,0 +1,138 @@
+/* KAVANAH PITCH SHOWCASE v1 | Designly typography, composition, brand, visual QA
+ * Six verifiable local demo contracts + future-plan pricing. Preserve site palette.
+ */
+:root{--pitch-ink:#19333D;--pitch-blue:#294B57;--pitch-copper:#9C7850;--pitch-paper:#FBFAF7;--pitch-muted:#546A70}
+#top,.showcase,.pricing{scroll-margin-top:92px}
+.hero.hero-pitch{padding:clamp(65px,7.3vw,109px) 0 clamp(74px,8.4vw,118px);background:#FBFAF7;position:relative;overflow:hidden}
+.hero-pitch .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(355px,.89fr);align-items:center;gap:clamp(45px,6vw,94px)}
+.hero-pitch .hero-title{font-size:clamp(53px,6.2vw,86px);line-height:1.095;letter-spacing:-.058em;max-width:720px;margin:21px 0 25px}
+.hero-pitch .hero-title em{font-style:normal;color:#846846}
+.hero-pitch .hero-copy{max-width:555px;font-size:16px;line-height:1.85;color:#51676D}
+.hero-pitch .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin:31px 0 0}
+.hero-pitch .hero-actions .primary-btn{min-height:52px;padding:14px 22px;font-size:13px}
+.hero-pitch .hero-secondary{min-height:52px;display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid #C9D2CF;border-radius:5px;color:#294753;background:transparent;font-size:13px;font-weight:650;text-decoration:none;transition:border-color .15s,background .15s}
+.hero-pitch .hero-secondary:hover{background:#F1F4F1;border-color:#8DA5A1}
+.hero-pitch .hero-foot{font-size:12px;line-height:1.8;margin-top:30px;color:#567077}
+.pitch-proof{position:relative;background:#FFF;border:1px solid #DFE2DE;border-radius:9px;box-shadow:0 25px 75px rgba(20,48,57,.08);padding:30px 33px 25px;max-width:505px;margin-left:auto;transform:rotate(0deg)}
+.pitch-proof:before{position:absolute;content:"";inset:12px -12px -12px 12px;border:1px solid #DEDCD5;background:#EFEDE6;z-index:-1;border-radius:9px}
+.pitch-proof-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:20px;border-bottom:1px solid #E6E5E0}
+.pitch-proof-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;color:#936F45}
+.pitch-proof-status{font-size:10px;color:#58716F}
+.pitch-proof h2{font:500 32px/1.24 "Playfair Display",Georgia,serif;letter-spacing:-.03em;margin:25px 0 8px;color:#1A3744}
+.pitch-proof-sub{font-size:12px;line-height:1.8;color:#667A80;margin:0 0 18px}
+.pitch-proof-main{background:#F9F6EE;border-left:3px solid #9B664F;padding:16px 19px;margin-bottom:20px}
+.pitch-proof-main small{display:block;font-size:11px;font-weight:700;letter-spacing:.02em;color:#78563C}
+.pitch-proof-number{font:500 49px/1.1 "Playfair Display",serif;color:#923F36;letter-spacing:-.05em;display:block;margin:8px 0}
+.pitch-proof-main p{color:#38525E;font-size:12px;line-height:1.7;margin:0}
+.pitch-proof-main strong{font-weight:750;color:#28424D}
+.pitch-proof-row{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid #ECECE7;padding:12px 0}
+.pitch-proof-row strong{font-weight:650;color:#314C58;font-size:12px}
+.pitch-proof-row span{font-size:11px;color:#8B5A47}
+.pitch-proof-row.medium span{color:#8A6F43}.pitch-proof-row.low span{color:#526B70}
+.pitch-proof-footer{font-size:10px;line-height:1.8;color:#60767C;margin:19px 0 0}
+.showcase{background:#F4F2EC;padding:clamp(76px,8vw,110px) 0 clamp(82px,8vw,108px);border-top:1px solid #E9E5DD}
+.showcase-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(240px,.75fr);align-items:end;gap:clamp(30px,7vw,104px);margin-bottom:40px}
+.showcase-overline,.pricing-overline{font-size:11px;letter-spacing:.16em;font-weight:800;color:#8A6B43;margin:0 0 18px}
+.showcase-title,.pricing-title{font:500 clamp(42px,4.45vw,61px)/1.19 "Playfair Display",Georgia,serif;letter-spacing:-.045em;color:#1A3945;margin:0}
+.showcase-head p:not(.showcase-overline){font-size:14px;line-height:1.9;color:#4F676D;margin:0 0 5px}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.showcase-card{min-width:0;display:flex;flex-direction:column;background:#FFF;border:1px solid #DDDCD6;border-radius:8px;padding:27px 27px 24px;min-height:338px;transition:border-color .15s,box-shadow .15s,transform .15s}
+.showcase-card:hover{border-color:#9FB3AF;box-shadow:0 13px 35px rgba(22,50,58,.07);transform:translateY(-2px)}
+.showcase-card-top{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:20px}
+.showcase-index{font:500 28px/1.1 "Playfair Display",Georgia,serif;color:#9D7E52}
+.showcase-category{padding:5px 9px;border:1px solid #D9E1DE;border-radius:3px;color:#42616B;font-size:11px;font-weight:650}
+.showcase-card h3{font:500 clamp(24px,2.3vw,30px)/1.26 "Playfair Display",Georgia,serif;letter-spacing:-.023em;color:#1D3D49;margin:0 0 10px}
+.showcase-audience{font-size:11px;font-weight:750;letter-spacing:.012em;color:#866D50;margin:0 0 12px}
+.showcase-desc{font-size:13px;color:#526B73;line-height:1.81;margin:0 0 18px;flex:1}
+.showcase-indicators{min-height:31px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:2px 0 21px}
+.showcase-risk{padding:6px 9px;border-radius:3px;background:#F4F5F2;color:#485D65;font-size:10px;font-weight:700}
+.showcase-risk-high{background:#FBEDEA;color:#963E35}
+.showcase-risk-medium{background:#FBF3E3;color:#81632E}
+.showcase-risk-low{background:#EAF0EE;color:#416770}
+.showcase-risk-zero{background:#F2F3F1;color:#536B63}
+.showcase-controls{display:flex;gap:14px;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid #ECECE8}
+.showcase-run{border:0;background:transparent;color:#203D4A;font-size:13px;font-weight:750;cursor:pointer;padding:10px 0;min-height:44px;text-align:left}
+.showcase-run:hover{text-decoration:underline;text-underline-offset:5px}
+.showcase-download{border:0;background:transparent;color:#516B72;font-size:12px;padding:10px 0;min-height:44px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.showcase-download:hover{color:#1C4757}
+.showcase-note{font-size:12px;color:#526E74;line-height:1.8;margin:28px 0 0}
+.showcase-status{font-size:12px;color:#45666E;margin-top:9px;min-height:1px}
+.showcase-status:empty{display:none}
+.demo-value-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #DAD8D0;border-bottom:1px solid #DAD8D0;margin-top:40px}
+.demo-value-strip>div{padding:20px 20px;min-width:0}
+.demo-value-strip>div:first-child{padding-left:0}.demo-value-strip>div+div{border-left:1px solid #DAD8D0}
+.demo-value-strip b{display:block;color:#9C784B;font:500 26px/1.1 "Playfair Display",serif;margin:0 0 7px}
+.demo-value-strip span{font-size:12px;color:#536B72;line-height:1.7}
+.pricing{background:#FFF;padding:clamp(83px,9vw,124px) 0 100px;border-top:1px solid #EEEDE7}
+.pricing-head{display:flex;justify-content:space-between;align-items:end;gap:55px;margin-bottom:44px}
+.pricing-head>div{max-width:670px}
+.pricing-copy{font-size:14px;line-height:1.9;color:#546D74;max-width:375px;margin:0 0 5px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.pricing-card{position:relative;display:flex;flex-direction:column;min-width:0;border:1px solid #DDE2DE;background:#FBFBF9;border-radius:9px;padding:29px 27px 27px}
+.pricing-card-featured{background:#1E3B47;color:#F7F6F2;border-color:#1E3B47;box-shadow:0 24px 55px rgba(24,53,65,.15)}
+.pricing-number{font-size:11px;font-weight:750;letter-spacing:.13em;color:#957247;margin-bottom:18px}
+.pricing-card-featured .pricing-number{color:#E6C595}
+.pricing-card h3{font:500 29px/1.25 "Playfair Display",Georgia,serif;letter-spacing:-.03em;margin:0 0 15px;color:#203D49}
+.pricing-card-featured h3{color:#F7F6F0}
+.pricing-amount{display:flex;align-items:baseline;gap:5px;font:500 clamp(40px,4vw,53px)/1 "Playfair Display",serif;letter-spacing:-.047em;color:#1F3D49}
+.pricing-amount small{font-size:13px;font-family:"Be Vietnam Pro",sans-serif;letter-spacing:0;font-weight:500;color:#5C727A}
+.pricing-card-featured .pricing-amount{color:#FFF}
+.pricing-card-featured .pricing-amount small{color:#E3E8E6}
+.pricing-sub{font-size:12px;line-height:1.75;color:#5B7378;margin:14px 0 26px;min-height:42px}
+.pricing-card-featured .pricing-sub{color:#D9E3E1}
+.pricing-divider{border-top:1px solid #DEE2DC;margin-bottom:21px}
+.pricing-card-featured .pricing-divider{border-color:#56707A}
+.pricing-feature-list{list-style:none;padding:0;margin:0 0 35px;flex:1}
+.pricing-feature-list li{display:flex;align-items:start;gap:10px;margin:0 0 15px;font-size:12px;line-height:1.78;color:#4E6570}
+.pricing-feature-list li:before{content:"✓";color:#8D744D;font-size:14px;flex:0 0 auto}
+.pricing-card-featured .pricing-feature-list li{color:#E8EEEB}
+.pricing-card-featured .pricing-feature-list li:before{color:#E4C79A}
+.pricing-link{margin-top:auto;display:flex;align-items:center;justify-content:center;border:1px solid #294956;background:transparent;border-radius:5px;text-decoration:none;font-size:12px;font-weight:750;padding:13px 16px;min-height:48px;color:#1C3B49;transition:background .15s}
+.pricing-link:hover{background:#E9EEEA}
+.pricing-card-featured .pricing-link{background:#EBD6B5;color:#243C47;border-color:#EBD6B5}
+.pricing-card-featured .pricing-link:hover{background:#F2E3CB}
+.pricing-future{font-size:12px;color:#526C73;text-align:center;margin-top:12px;line-height:1.65}
+.pricing-card-featured .pricing-future{color:#DCE5E2}
+.pricing-bottom{display:flex;align-items:start;gap:14px;margin-top:31px;padding:19px 22px;background:#F7F5EF;border-left:3px solid #B19771;border-radius:2px}
+.pricing-bottom span{font-weight:800;font-size:16px;color:#96784E}
+.pricing-bottom p{font-size:12px;color:#526C73;line-height:1.82;margin:0}
+.pricing-bottom strong{color:#2B4D59}
+.pitch-faq-link{display:inline-flex;margin-top:20px;font-size:12px;font-weight:700;color:#2C5562;text-decoration:underline;text-underline-offset:5px}
+@media(max-width:1080px){
+ .hero-pitch .hero-layout{grid-template-columns:minmax(0,1fr) minmax(310px,.86fr);gap:30px}
+ .pitch-proof{padding:24px}
+ .showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .showcase-card{min-height:322px}
+ .pricing-grid{gap:12px}
+ .pricing-card{padding:24px 20px}
+}
+@media(max-width:790px){
+ .hero-pitch .hero-layout{grid-template-columns:1fr;gap:39px}
+ .hero.hero-pitch{padding:59px 0 77px}
+ .pitch-proof{margin:0 auto;width:min(100% - 12px,540px);max-width:540px}
+ .showcase{padding:76px 0}
+ .showcase-head{grid-template-columns:1fr;gap:19px;margin-bottom:30px}
+ .showcase-head p:not(.showcase-overline){max-width:610px}
+ .pricing-head{display:block;margin-bottom:30px}
+ .pricing-copy{max-width:600px;margin-top:20px}
+ .pricing-grid{grid-template-columns:1fr}
+ .pricing-card{padding:27px;min-height:0}
+ .pricing-feature-list{margin-bottom:18px}
+ .pricing-sub{min-height:0}
+}
+@media(max-width:565px){
+ .hero-pitch .hero-title{font-size:clamp(47px,11.6vw,64px);line-height:1.095}
+ .hero-pitch .hero-actions{display:flex;flex-direction:column;align-items:stretch}
+ .hero-pitch .hero-actions .primary-btn,.hero-pitch .hero-secondary{width:100%;text-align:center}
+ .pitch-proof{padding:21px 19px}
+ .pitch-proof h2{font-size:26px}
+ .pitch-proof-number{font-size:43px}
+ .showcase-grid{grid-template-columns:1fr}
+ .showcase-card{min-height:0;padding:25px 23px}
+ .demo-value-strip{grid-template-columns:1fr}
+ .demo-value-strip>div{padding:13px 0}
+ .demo-value-strip>div+div{border-left:0;border-top:1px solid #DAD8D0}
+ .showcase-title,.pricing-title{font-size:clamp(39px,10vw,48px)}
+ .pricing{padding:78px 0}
+}
+@media(prefers-reduced-motion:reduce){.showcase-card,.showcase-run,.pricing-link{transition:none!important;transform:none!important}}
