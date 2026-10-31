@@ -64,10 +64,29 @@ function p(label,value,cls){
  if(label){const b=document.createElement("strong");b.textContent=label+" ";node.append(b);}
  node.append(document.createTextNode(value));return node;
 }
+function isLikelyContract(text,type){
+ const normalized=String(text||"").toLowerCase();
+ if(normalized.length<120)return false;
+ const common=[/(?:hợp\s*đồng|thỏa\s*thuận)/u,/(?:bên\s+a|bên\s+b|bên\s+1|bên\s+2)/u,/(?:điều\s+\d+|quyền\s+và\s+nghĩa\s+vụ|điều khoản)/u];
+ const labor=[/(?:người\s+lao\s+động|nhân\s+viên|người\s+sử\s+dụng\s+lao\s+động|công\s+ty)/u,/(?:mức\s+lương|tiền\s+lương|thử\s+việc|thời\s+giờ\s+làm\s+việc|nghỉ\s+việc)/u];
+ const commercial=[/(?:mua\s+bán|cung\s+cấp|dịch\s+vụ|hàng\s+hóa|giao\s+hàng)/u,/(?:giá\s+trị|thanh\s+toán|nghiệm\s+thu|bồi\s+thường|phạt\s+vi\s+phạm)/u];
+ const matches=patterns=>patterns.reduce((count,pattern)=>count+(pattern.test(normalized)?1:0),0);
+ return matches(common)>=2&&matches(type==="commercial"?commercial:labor)>=1;
+}
 function run(){
  $("samplePanel").classList.remove("active");$("toolMessage").classList.remove("active");
  report.hidden=false;list.replaceChildren();last=null;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;
  if(!input.value.trim()){summary.textContent="Hãy tải hợp đồng hoặc dán nội dung trước khi kiểm tra.";download.disabled=true;return;}
+ if(!isLikelyContract(input.value,contractType.value)){
+  input.dataset.invalidContract="true";
+  summary.textContent="Đây không phải một loại hợp đồng hợp lệ hoặc nội dung chưa đủ thông tin để kiểm tra. Vui lòng kiểm tra lại văn bản và chọn đúng loại hợp đồng.";
+  download.disabled=true;
+  if(printButton)printButton.disabled=true;
+  const cloudAiBox=document.getElementById("cloudAiBox");
+  if(cloudAiBox)cloudAiBox.hidden=true;
+  return;
+ }
+ input.dataset.invalidContract="false";
  const checker=contractType.value==="commercial"?window.KavanahCommercialCheck:window.KavanahCheck;
  if(!checker){summary.textContent="Bộ kiểm tra chưa tải xong. Vui lòng tải lại trang và thử lại.";download.disabled=true;return;}
  last=checker.analyze(input.value);download.disabled=false;if(printButton)printButton.disabled=false;
@@ -115,4 +134,3 @@ download.addEventListener("click",()=>{
  const a=document.createElement("a");a.href=url;a.download="kavanah-kiem-tra-so-bo.txt";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 })();
-

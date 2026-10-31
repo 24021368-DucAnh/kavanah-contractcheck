@@ -16,9 +16,9 @@ button:disabled{cursor:not-allowed;opacity:.56}
 [hidden]{display:none!important}
 .shell{width:min(1220px,calc(100% - 96px))}
 .top{background:rgba(251,250,247,.96);border-bottom:1px solid var(--k3-line)}
-.top-inner{min-height:82px;gap:26px}
+.top-inner{min-height:92px;gap:26px}
 .brand{gap:12px;min-width:196px}
-.brand img{width:46px;height:46px}
+.brand img{width:124px;height:62px;object-fit:contain}
 .brand-name{font:500 21px/1.03 "Playfair Display",Georgia,serif;letter-spacing:.115em;color:var(--k3-ink)}
 .brand-name small{font:700 9px/1.3 "Be Vietnam Pro",sans-serif;letter-spacing:.19em;color:var(--k3-accent);margin-top:8px}
 .navigation{font-size:12px;gap:21px;letter-spacing:0;font-weight:600;color:#405963}
@@ -113,6 +113,7 @@ button:disabled{cursor:not-allowed;opacity:.56}
 .screen-finding a,.screen-actions a{font-size:12px}
 .screen-limit{font-size:12px;line-height:1.85;border-radius:5px}
 .ai-hr{margin:21px 0 14px;border-radius:8px;background:#F5F3ED;padding:22px}
+.cloud-ai-box{margin:18px 0 14px;border-top:1px solid #E5E2DA;padding:16px 0 0}.cloud-ai-inline-consent{display:inline-flex;align-items:center;gap:8px;margin:13px 0 17px;color:#526870;font-size:12px}.cloud-ai-inline-consent input{margin:0}.cloud-ai-result{font-size:12px;line-height:1.9;color:#526870}.cloud-ai-result>strong{display:block;color:#765C3A;font-size:11px;text-transform:uppercase;letter-spacing:.7px}.cloud-ai-loading{display:inline-flex;align-items:center;gap:9px;color:#765C3A}.cloud-ai-spinner{width:14px;height:14px;border:2px solid #D9CFBD;border-top-color:#A47A42;border-radius:50%;animation:cloud-ai-spin .8s linear infinite}@keyframes cloud-ai-spin{to{transform:rotate(360deg)}}.cloud-ai-answer{margin-top:8px;padding:16px 18px;background:#F8F6F0;border-left:3px solid #A47A42;overflow-wrap:anywhere}.cloud-ai-answer h4{margin:15px 0 7px;color:#294452;font-size:13px;line-height:1.6}.cloud-ai-answer h4:first-child{margin-top:0}.cloud-ai-answer p{margin:7px 0}.cloud-ai-answer ul,.cloud-ai-answer ol{margin:6px 0 12px;padding-left:22px}.cloud-ai-answer li{margin:5px 0;padding-left:3px}.cloud-ai-answer strong{color:#294452}
 .ai-hr h3{font:500 27px/1.28 "Playfair Display",Georgia,serif}
 .ai-hr-desc,.ai-hr-result,.ai-hr-consent{font-size:12px;line-height:1.9}
 .ai-hr-label{font-size:12px}
@@ -285,4 +286,3 @@ button:disabled{cursor:not-allowed;opacity:.56}
 #heroChooseFile{border-radius:5px}
 #heroPaste{font-weight:600}
 @media(max-width:780px){.hero-start-panel{margin-top:23px;padding:25px 21px}.hero-start-panel h2{font-size:29px}.hero-scope-list li{font-size:13px}}
-
