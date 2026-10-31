@@ -21,7 +21,8 @@
 .navigation{display:flex;align-items:center;gap:35px;font-size:12px;color:#41545C;font-weight:500}.navigation a:hover{color:var(--gold)}.navigation .small-cta{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:0 18px;border:1px solid #9DA8AB;color:#193641;border-radius:2px;font-weight:700;white-space:nowrap;transition:background .2s,color .2s}.navigation .small-cta:hover{background:var(--ink);color:white;border-color:var(--ink)}
 .menu-toggle{display:none;border:1px solid #CFD1CC;border-radius:2px;background:transparent;color:var(--ink);min-width:44px;min-height:44px;font-size:21px}
 .hero{padding:90px 0 82px}.hero-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(30px,5vw,90px);align-items:center}.hero-layout.hero-layout-single{grid-template-columns:1fr;max-width:920px}.overline{text-transform:uppercase;font-weight:700;font-size:10px;letter-spacing:2.5px;color:var(--gold);margin:0}.hero-title{font:500 clamp(55px,6.2vw,94px)/1.025 "Playfair Display",Georgia,serif;letter-spacing:-2.9px;margin:31px 0 25px;max-width:680px}.hero-title em{font-style:normal;color:#537385}.hero-copy{font-size:15px;line-height:2;color:#5D6F74;max-width:505px;margin:0}.hero-actions{display:flex;align-items:center;gap:25px;margin-top:32px;flex-wrap:wrap}
-.primary-btn{background:var(--ink);color:#fff;padding:15px 23px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:16px;border:1px solid var(--ink);border-radius:2px;font-size:12px;font-weight:700;transition:background .2s,transform .2s}.primary-btn:hover{background:#315260;transform:translateY(-1px)}.plain-link{font-size:12px;font-weight:700;text-decoration:underline;text-decoration-color:#A7B0AA;text-underline-offset:5px}
+.primary-btn{background:var(--ink);color:#fff;padding:15px 23px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:16px;border:1px solid var(--ink);border-radius:2px;font-size:12px;font-weight:700;transition:background .2s,transform .2s}.primary-btn:hover{background:#315260;transform:translateY(-1px)}.primary-btn:disabled{cursor:wait;opacity:.82;transform:none}.plain-link{font-size:12px;font-weight:700;text-decoration:underline;text-decoration-color:#A7B0AA;text-underline-offset:5px}
+.run-check-spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#FFF;border-radius:50%;animation:run-check-spin .8s linear infinite}@keyframes run-check-spin{to{transform:rotate(360deg)}}
 .hero-foot{font-size:10px;color:#889194;margin-top:34px}.fine-rule{width:32px;height:1px;background:var(--gold);display:inline-block;vertical-align:middle;margin-right:12px}
 .contract-visual{position:relative;padding:0 0 24px 25px}.contract-visual:before{content:"";position:absolute;top:20px;left:0;right:20px;bottom:0;border:1px solid #DDD3C6;background:#F3EFE8}
 .contract-paper{position:relative;background:#FFF;box-shadow:0 18px 42px #172C3613;border:1px solid #E4E1DA;min-height:450px;padding:32px clamp(22px,3vw,45px);transform:translateY(0)}.doc-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E4E2DC;padding-bottom:21px;gap:10px}
@@ -84,8 +85,8 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 .brand-name{font-family:"Playfair Display",Georgia,serif;font-size:22px;font-weight:500;letter-spacing:.14em;color:#173541}
 .brand-name small{font-family:"Be Vietnam Pro",sans-serif;letter-spacing:.19em;font-size:8px;color:#9A7747}
 .brand{gap:13px;min-width:210px}
-.brand img{height:48px;width:48px;object-fit:contain;mix-blend-mode:normal}
-.top-inner{height:82px}
+.brand img{height:62px!important;width:124px!important;object-fit:contain;mix-blend-mode:normal}
+.top-inner{height:92px!important}
 .navigation{gap:30px;letter-spacing:.02em}
 .navigation a{font-weight:500}
 .navigation .small-cta{font-size:11px;font-weight:600;letter-spacing:.01em;padding:0 19px;border-color:#A8B2AF}
@@ -123,6 +124,18 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 @media(max-width:940px){.navigation{gap:17px}.hero-title{font-size:clamp(53px,6vw,70px)}}
 @media(max-width:740px){.top-inner{height:70px}.navigation{top:70px}.brand{min-width:unset}.brand img{height:40px;width:40px}.brand-name{font-size:19px}.hero{padding:58px 0 62px}.hero-title{font-size:clamp(49px,10vw,69px);line-height:1.13}.section{padding:65px 0}.section-heading{font-size:clamp(33px,8vw,45px)}.rhythm,.about{padding:68px 0}.tool-area{padding:25px 19px}}
 @media(max-width:380px){.hero-title{font-size:48px}}
+.auth-trigger{border:1px solid #A8B2AF;background:transparent;color:#193641;border-radius:2px;padding:9px 14px;font:600 11px/1 "Be Vietnam Pro",sans-serif;cursor:pointer}
+.auth-locked>.top,.auth-locked>main{visibility:hidden;pointer-events:none}
+.auth-trigger:hover{background:#19333D;color:#FFF;border-color:#19333D}
+.auth-user{display:none;align-items:center;gap:8px;color:#405963;font-size:11px}
+.auth-user.active{display:inline-flex}.auth-user button{border:0;background:transparent;color:#876C46;text-decoration:underline;cursor:pointer;font:600 11px "Be Vietnam Pro",sans-serif}
+.auth-backdrop{position:fixed;inset:0;display:grid;place-items:center;padding:20px;background:rgba(23,44,54,.48);z-index:100}
+.auth-backdrop[hidden]{display:none}.auth-card{width:min(420px,100%);background:#FFF;border:1px solid #D9DBD7;border-radius:8px;padding:30px;box-shadow:0 24px 70px rgba(20,39,44,.2)}
+.auth-card h2{margin:0 0 6px;font:500 30px/1.2 "Playfair Display",Georgia,serif;color:#19333D}.auth-card>p{margin:0 0 22px;color:#63757A;font-size:12px;line-height:1.7}
+.auth-field{display:block;margin:14px 0 0;color:#294653;font-size:12px;font-weight:700}.auth-field input{display:block;width:100%;margin-top:7px;padding:12px;border:1px solid #C9D3D0;border-radius:4px;background:#FCFCFA;font:14px "Be Vietnam Pro",sans-serif}
+.auth-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px}.auth-close{border:0;background:transparent;color:#63757A;cursor:pointer;font:600 12px "Be Vietnam Pro",sans-serif}.auth-required .auth-close{display:none}.auth-submit{border:1px solid #19333D;border-radius:4px;background:#19333D;color:#FFF;padding:12px 18px;font:700 12px "Be Vietnam Pro",sans-serif;cursor:pointer}
+.auth-demo{margin-top:18px;padding:11px 13px;background:#F5F3ED;border-left:3px solid #A47A42;color:#63757A;font-size:11px;line-height:1.7}.auth-demo strong{color:#765C3A}.auth-message{min-height:20px;margin-top:14px;color:#9B4F42;font-size:12px}
+.tutorial-video{display:block;width:100%;max-height:560px;margin:26px 0 0;background:#172C36;border-radius:5px;box-shadow:0 12px 30px rgba(20,39,44,.12)}
 
 
 /* KAVANAH supplementary product utilities */
@@ -172,6 +185,17 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 .screen-review{display:grid;grid-template-columns:1fr 1fr;gap:10px}.screen-review-item{min-width:0;padding:13px 14px;border-radius:3px;background:#F7F6F2}.screen-review-item.screen-question{border-left:2px solid #B2935C;background:#F8F5EE}.screen-review-item .screen-field-label{color:#65777A}.screen-review-item.screen-question .screen-field-label{color:#806641}.screen-finding .screen-limit{font-size:inherit;line-height:inherit;color:inherit}
 @media(max-width:600px){.screen-finding{padding:17px 15px 15px;margin:14px 0}.screen-finding h4{font-size:17px}.screen-evidence{padding:13px 12px}.screen-review{grid-template-columns:1fr;gap:8px}}
 /* KAVANAH / restricted AI assist: no contract leaves the browser */
+#checkReport .cloud-ai-box{border:1px solid #DDDCD4;border-radius:8px;background:#F9F8F4;padding:23px 24px;margin:22px 0 20px}
+#checkReport .cloud-ai-box[hidden]{display:none!important}#checkReport .cloud-ai-result{font-size:12px;line-height:1.9;color:#334F59}
+#checkReport .cloud-ai-result>strong{display:block;color:#826E52;font-size:10px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:12px}
+#checkReport .cloud-ai-loading{display:flex;align-items:center;gap:10px;padding:14px 16px;border-left:3px solid #A18357;background:#FFF;color:#765C3A;font-size:12px}
+#checkReport .cloud-ai-answer{margin-top:0;padding:19px 20px;border:1px solid #E6E2D9;border-left:4px solid #A47A42;border-radius:5px;background:#FFF;box-shadow:0 5px 18px #172C3608;overflow-wrap:anywhere}
+#checkReport .cloud-ai-answer h4{font:600 16px/1.45 "Be Vietnam Pro",sans-serif;letter-spacing:-.02em;color:#173541;margin:0 0 10px}
+#checkReport .cloud-ai-answer h4:not(:first-child){margin-top:20px;padding-top:16px;border-top:1px solid #EEEAE1}
+#checkReport .cloud-ai-answer p{font-size:12px;line-height:1.9;color:#465D65;margin:8px 0}
+#checkReport .cloud-ai-answer ul,#checkReport .cloud-ai-answer ol{margin:8px 0 13px;padding-left:22px;color:#465D65}
+#checkReport .cloud-ai-answer li{font-size:12px;line-height:1.9;padding-left:4px;margin:4px 0}
+#checkReport .cloud-ai-answer strong{color:#294452}
 .ai-hr{border:1px solid #DDDCD4;background:#F9F8F4;padding:23px 24px;margin:22px 0 20px}
 .ai-hr[hidden]{display:none!important}.ai-hr-top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
 .ai-hr h3{font:500 25px/1.25 "Playfair Display",Georgia,serif;letter-spacing:-.03em;margin:9px 0 11px}
@@ -214,7 +238,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
  #san-pham .tool-surface,#san-pham .tool-grid,#san-pham .tool-area{display:block!important;width:100%!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
  #san-pham .tool-area>*:not(#checkReport),#san-pham .tool-sidebar{display:none!important}
  #san-pham #checkReport{display:block!important;border:0!important;padding:0!important;margin:0!important;background:white!important;box-shadow:none!important}
- #checkReport .screen-actions,#checkReport .ai-hr,#checkReport .severity-filters,#checkReport .severity-filter-feedback{display:none!important}
+ #checkReport .screen-actions,#checkReport .ai-hr,#checkReport .cloud-ai-box,#checkReport .severity-filters,#checkReport .severity-filter-feedback{display:none!important}
  #checkReport .screen-pill{color:#614828!important;border-color:#AAA!important}
  #checkFindings .screen-finding[hidden]{display:block!important}
  #checkFindings .screen-finding{break-inside:avoid;page-break-inside:avoid;background:white!important;margin:0 0 5mm!important;padding-top:4mm!important;padding-bottom:4mm!important}
@@ -246,7 +270,22 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 </style>
 </head>
 <body>
-<!--#wps-include fragment="kavanah-header" -->
+<header class="top"><div class="shell top-inner">
+<a class="brand" href="index.html" aria-label="KAVANAH — về trang chủ"><img width="124" height="62" src="../assets/images/kavanah-logo-nhom.png" alt="Logo KAVANAH"><span class="brand-name">KAVANAH<small>CONTRACTCHECK AI</small></span></a>
+<button class="menu-toggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navigation" id="menuToggle" type="button">☰</button>
+<nav class="navigation" id="navigation" aria-label="Điều hướng chính"><a href="index.html#san-pham">Kiểm tra hợp đồng</a><a href="tra-cuu-phap-luat.html">Tra cứu luật</a><button class="auth-trigger" id="authOpen" type="button">Đăng nhập</button><span class="auth-user" id="authUser"><span id="authUserName"></span><button id="authLogout" type="button">Đăng xuất</button></span><a href="index.html#san-pham" class="small-cta">Bắt đầu kiểm tra ↗</a></nav>
+</div></header>
+<div class="auth-backdrop" id="authModal" hidden>
+<form class="auth-card" id="authForm">
+<h2>Đăng nhập KAVANAH</h2>
+<p>Đăng nhập để lưu phiên làm việc demo trên trình duyệt này.</p>
+<label class="auth-field" for="authEmail">Email<input id="authEmail" type="email" autocomplete="username" required placeholder="you@example.com"></label>
+<label class="auth-field" for="authPassword">Mật khẩu<input id="authPassword" type="password" autocomplete="current-password" required placeholder="Nhập mật khẩu"></label>
+<div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
+<div class="auth-actions"><button class="auth-close" id="authClose" type="button">Đóng</button><button class="auth-submit" type="submit">Đăng nhập</button></div>
+<div class="auth-demo"><strong>Tài khoản demo:</strong><br>Email: demo@kavanah.vn<br>Mật khẩu: Kavanah123!</div>
+</form>
+</div>
 <main id="top">
 <section class="hero hero-pitch">
 <div class="shell hero-layout hero-layout-single">
@@ -254,6 +293,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <p class="overline">KAVANAH / KIỂM TRA HỢP ĐỒNG</p>
 <h1 class="hero-title">Đọc rõ hợp đồng.<br><em>Biết điều cần hỏi.</em></h1>
 <p class="hero-copy">Tải hợp đồng hoặc dán văn bản để xem điểm cần rà soát.</p>
+<video class="tutorial-video" controls preload="metadata" aria-label="Video hướng dẫn sử dụng KAVANAH"><source src="../assets/videos/kavanah-huong-dan.mp4" type="video/mp4">Trình duyệt của bạn không hỗ trợ phát video.</video>
 <div class="hero-actions">
 <a class="primary-btn" href="#san-pham">Bắt đầu kiểm tra <span aria-hidden="true">↓</span></a>
 
@@ -266,7 +306,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <section class="section" id="san-pham"><div class="shell">
 <div class="tool-head"><div><p class="section-kicker">Không gian làm việc</p><h2 class="section-heading">Hợp đồng của bạn.<br>Đọc rõ từng phần.</h2></div><p class="section-lead">Tải tệp hoặc dán văn bản để xem điều khoản cần chú ý, trích đoạn liên quan và nguồn đối chiếu.</p></div>
 <div class="tool-surface">
-<div class="tool-bar"><span>Đọc và tách nội dung hợp đồng</span><span class="tool-status">AI phân tích toàn hợp đồng chưa khả dụng</span></div>
+<div class="tool-bar"><span>Đọc và tách nội dung hợp đồng</span><span class="tool-status">Luật + AI tùy chọn</span></div>
 
 <div class="contract-type-row"><span class="contract-type-label" id="contractTypeLabel">Loại hợp đồng</span><div class="contract-type-switch" role="radiogroup" aria-labelledby="contractTypeLabel" aria-label="Chọn loại hợp đồng"><button class="contract-type-option" type="button" role="radio" aria-checked="true" tabindex="0" data-contract-choice="labor"><span class="contract-type-option-title">Lao động</span><small class="contract-type-option-note">Hợp đồng giữa người lao động và doanh nghiệp</small></button><button class="contract-type-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-contract-choice="commercial"><span class="contract-type-option-title">Thương mại</span><small class="contract-type-option-note">Thỏa thuận mua bán, dịch vụ giữa doanh nghiệp</small></button></div><select id="contractType" aria-label="Chọn loại hợp đồng" aria-hidden="true" hidden tabindex="-1"><option value="labor">Lao động</option><option value="commercial">Thương mại</option></select></div>
 <div class="upload-mode-tabs" role="group" aria-label="Chọn cách nhập hợp đồng">
@@ -290,9 +330,10 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <label for="clause">Văn bản hợp đồng đã trích xuất hoặc nhập trực tiếp</label>
 <textarea id="clause" maxlength="120000" placeholder="Dán nội dung hợp đồng tại đây…" aria-describedby="privacy"></textarea>
 <div class="utility-row"><span id="count" class="charcount">0 / 120.000 ký tự</span></div>
-<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck">Kiểm tra hợp đồng sơ bộ ↗</button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
+<label class="cloud-ai-inline-consent"><input type="checkbox" id="cloudAiConsent"> Rà soát thêm bằng AI đám mây</label>
+<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck"><span id="runCheckLabel">Kiểm tra bằng luật + AI ↗</span><span id="runCheckSpinner" class="run-check-spinner" aria-hidden="true" hidden></span></button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
 <div class="tool-message" id="toolMessage" role="status" aria-live="polite"></div>
-<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ TỪ VĂN BẢN BẠN NHẬP · QUY TẮC CỤ THỂ · KHÔNG PHẢI AI</span><h3 id="checkReportTitle">Kiểm tra sơ bộ hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><section class="ai-hr" id="aiHrBox" hidden aria-labelledby="aiHrTitle">
+<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ KẾT HỢP · LUẬT CỨNG + AI</span><h3 id="checkReportTitle">Kiểm tra hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><section class="ai-hr" id="aiHrBox" hidden aria-labelledby="aiHrTitle">
   <div class="ai-hr-top"><div><span class="sample-label">AI HỖ TRỢ · TÙY CHỌN</span>
     <h3 id="aiHrTitle">Chuẩn bị trao đổi với nhân sự.</h3></div><span class="ai-hr-state">Groq AI · Theo yêu cầu</span></div>
   <p class="ai-hr-desc">AI có thể gợi ý câu hỏi hoặc bước tiếp theo từ dấu hiệu đã phát hiện. Khi bạn đồng ý, KAVANAH chỉ gửi mã dấu hiệu hoặc danh sách mã tới Groq; <strong>không gửi hợp đồng, tệp hay trích đoạn.</strong> Gợi ý không phải kết luận vi phạm. <a href="/quyen-rieng-tu.html" style="text-decoration:underline;text-underline-offset:3px">Xem quyền riêng tư ↗</a></p>
@@ -301,7 +342,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
   <label class="ai-hr-consent"><input type="checkbox" id="aiHrConsent"> Tôi hiểu đây là gợi ý chung do AI tạo và đồng ý gửi một hoặc nhiều mã loại dấu hiệu đến WebsitePublisher / Groq để xử lý.</label>
   <button type="button" class="primary-btn ai-hr-trigger" id="aiHrAsk" disabled>Gợi ý thêm bằng AI</button>
   <div class="ai-hr-result" id="aiHrResult" role="status" aria-live="polite"></div><button type="button" class="subtle-button ai-plan-trigger" id="aiPlanAsk" disabled>AI gợi ý các bước tiếp theo</button><div class="ai-hr-result ai-plan-result" id="aiPlanResult" role="status" aria-live="polite"></div>
-</section><p class="screen-limit">Kết quả là gợi ý rà soát, không thay thế việc đối chiếu căn cứ pháp luật và hoàn cảnh thực tế.</p><div class="screen-actions"><button class="subtle-button" type="button" id="downloadCheck">Tải kết quả .txt</button><button class="subtle-button" type="button" id="printCheck" disabled>In / Lưu PDF</button><a href="/tra-cuu-phap-luat.html">Tra cứu pháp luật ↗</a></div></section>
+</section><section class="cloud-ai-box" id="cloudAiBox" hidden><div class="cloud-ai-result" id="cloudAiResult" role="status" aria-live="polite"></div></section><p class="screen-limit">Kết quả là gợi ý rà soát, không thay thế việc đối chiếu căn cứ pháp luật và hoàn cảnh thực tế.</p><div class="screen-actions"><button class="subtle-button" type="button" id="downloadCheck">Tải kết quả .txt</button><button class="subtle-button" type="button" id="printCheck" disabled>In / Lưu PDF</button><a href="/tra-cuu-phap-luat.html">Tra cứu pháp luật ↗</a></div></section>
 <div id="samplePanel" class="sample-panel" aria-live="polite"></div>
 <p id="privacy" class="tool-caution">Tệp được đọc trên thiết bị, không tự tải lên máy chủ. Báo cáo tải về có thể chứa nội dung hợp đồng.</p>
 </div>
@@ -332,8 +373,10 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <script>
 (function(){
  const nav=document.getElementById("navigation"), toggle=document.getElementById("menuToggle");
- toggle.addEventListener("click",function(){let open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});
- nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",function(){nav.classList.remove("open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}));
+ if(toggle&&nav){
+  toggle.addEventListener("click",function(){let open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});
+  nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",function(){nav.classList.remove("open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}));
+ }
  const input=document.getElementById("clause"),count=document.getElementById("count"),panel=document.getElementById("samplePanel"),msg=document.getElementById("toolMessage");
  input.addEventListener("input",function(){count.textContent=new Intl.NumberFormat("vi-VN").format(input.value.length)+" / 120.000 ký tự";msg.classList.remove("active");});
 
@@ -474,9 +517,12 @@ async function readFile(file){
 
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/contract-check-v7.js?v=7" integrity="sha384-tY3Ml+jAZ5sGmsqSGO+eJG/BZi8WfPwIda0ouGVS5arrsCRZ7LjQmkxosYiFq1qF" crossorigin="anonymous" defer></script>
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/commercial-check.js?v=3" integrity="sha384-7gEqO8hTu2C1K3h/HdJgNVxs2L4SPuH9wW8iXGfuAUZDfBPqdFkqCrlowcr2i7hX" crossorigin="anonymous" defer></script>
-<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/contract-check-ui-v7.js?v=7" integrity="sha384-T0oB1Xcs7Gu684wBDKI0c2nMVmBboXxqQcOYGE9xOYkKNFwEer6+/9lua1PVsFKK" crossorigin="anonymous" defer></script>
+<script src="../assets/js/contract-check-ui-v7.js?v=8" defer></script>
 <script src="https://cdn.websitepublisher.ai/js/sapi-client.js" defer></script>
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/kavanah-ai-hr-v2.js?v=4" integrity="sha384-ZU2zw0vja0hNS2VOgiiT9hVKb9LeDwDXDAQRIII9/1cw+kISbdmPmK87Fe8wjXUW" crossorigin="anonymous" defer></script>
+<script src="../assets/js/kavanah-local-config.js" defer></script>
+<script src="../assets/js/kavanah-ai-cloud-v1.js?v=2" defer></script>
+<script src="../assets/js/auth-demo-v1.js?v=1" defer></script>
 
 
 

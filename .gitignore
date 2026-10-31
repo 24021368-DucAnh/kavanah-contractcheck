@@ -6,6 +6,7 @@
 *.key
 secrets/
 private/
+site/assets/js/kavanah-local-config.js
 
 # Dependencies/build outputs
 node_modules/
