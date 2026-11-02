@@ -1,7 +1,23 @@
 (function(){
 "use strict";
 const $=id=>document.getElementById(id),input=$("clause"),contractType=$("contractType"),report=$("checkReport"),summary=$("checkSummary"),list=$("checkFindings"),download=$("downloadCheck"),printButton=$("printCheck");
-let last=null;
+const runButton=$("runCheck"),runLabel=$("runCheckLabel"),runSpinner=$("runCheckSpinner"),progress=$("checkProgress"),progressStatus=$("checkProgressStatus");
+const steps=progress?[...progress.querySelectorAll("[data-check-step]")]:[];
+let last=null,busy=false,runToken=0;
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+function stage(index){
+ steps.forEach((step,i)=>{
+  step.classList.toggle("is-current",i===index);
+  step.classList.toggle("is-complete",i<index);
+  if(i===index)step.setAttribute("aria-current","step");else step.removeAttribute("aria-current");
+ });
+ if(progressStatus)progressStatus.textContent=steps[index]?.dataset.checkStep||"";
+}
+function stopProgress(){
+ busy=false;runButton.disabled=false;runButton.removeAttribute("aria-busy");
+ runLabel.textContent="Kiểm tra bằng luật ↗";runSpinner.hidden=true;progress.hidden=true;
+}
+function invalidate(){runToken++;if(busy)stopProgress();}
 if(printButton){printButton.disabled=true;printButton.addEventListener("click",()=>{if(last&&!report.hidden&&typeof window.print==="function")window.print();});}
 const severityPanel=$("severityPanel");
 function renderSeverityPanel(data){
@@ -73,23 +89,52 @@ function isLikelyContract(text,type){
  const matches=patterns=>patterns.reduce((count,pattern)=>count+(pattern.test(normalized)?1:0),0);
  return matches(common)>=2&&matches(type==="commercial"?commercial:labor)>=1;
 }
-function run(){
+async function run(){
+ if(busy)return;
  $("samplePanel").classList.remove("active");$("toolMessage").classList.remove("active");
- report.hidden=false;list.replaceChildren();last=null;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;
- if(!input.value.trim()){summary.textContent="Hãy tải hợp đồng hoặc dán nội dung trước khi kiểm tra.";download.disabled=true;return;}
- if(!isLikelyContract(input.value,contractType.value)){
+ report.hidden=true;list.replaceChildren();last=null;download.disabled=true;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;
+ $("aiHrBox").hidden=true;
+ const text=input.value,type=contractType.value;
+ if(!text.trim()){summary.textContent="Hãy tải hợp đồng hoặc dán nội dung trước khi kiểm tra.";report.hidden=false;return;}
+ if(!isLikelyContract(text,type)){
   input.dataset.invalidContract="true";
   summary.textContent="Đây không phải một loại hợp đồng hợp lệ hoặc nội dung chưa đủ thông tin để kiểm tra. Vui lòng kiểm tra lại văn bản và chọn đúng loại hợp đồng.";
-  download.disabled=true;
-  if(printButton)printButton.disabled=true;
   const cloudAiBox=document.getElementById("cloudAiBox");
   if(cloudAiBox)cloudAiBox.hidden=true;
+  report.hidden=false;
   return;
  }
  input.dataset.invalidContract="false";
- const checker=contractType.value==="commercial"?window.KavanahCommercialCheck:window.KavanahCheck;
- if(!checker){summary.textContent="Bộ kiểm tra chưa tải xong. Vui lòng tải lại trang và thử lại.";download.disabled=true;return;}
- last=checker.analyze(input.value);download.disabled=false;if(printButton)printButton.disabled=false;
+ const checker=type==="commercial"?window.KavanahCommercialCheck:window.KavanahCheck;
+ if(!checker){summary.textContent="Bộ kiểm tra chưa tải xong. Vui lòng tải lại trang và thử lại.";report.hidden=false;return;}
+ const token=++runToken;
+ busy=true;runButton.disabled=true;runButton.setAttribute("aria-busy","true");
+ runLabel.textContent="Đang kiểm tra…";runSpinner.hidden=false;progress.hidden=false;stage(0);
+ progress.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"nearest"});
+ const started=performance.now();
+ try{
+  await wait(1650);
+  if(token!==runToken)return;
+  stage(1);
+  const data=await new Promise((resolve,reject)=>setTimeout(()=>{try{resolve(checker.analyze(text));}catch(error){reject(error);}},0));
+  if(token!==runToken)return;
+  await wait(Math.max(0,3350-(performance.now()-started)));
+  if(token!==runToken)return;
+  stage(2);renderResult(data);
+  await wait(Math.max(0,5000-(performance.now()-started)));
+  if(token!==runToken)return;
+  stopProgress();report.hidden=false;download.disabled=false;if(printButton)printButton.disabled=false;
+  document.dispatchEvent(new Event("kavanah:check-complete"));
+  report.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+ }catch(error){
+  if(token!==runToken)return;
+  stopProgress();last=null;list.replaceChildren();if(severityPanel)severityPanel.hidden=true;
+  download.disabled=true;if(printButton)printButton.disabled=true;
+  summary.textContent="Không thể hoàn tất kiểm tra. Vui lòng thử lại hoặc tải lại trang.";report.hidden=false;
+ }
+}
+function renderResult(data){
+ last=data;
  const counts=last.severityCounts||{critical:0,high:0,medium:last.findings.filter(f=>f.kind==="legal").length,low:last.findings.filter(f=>f.kind==="negotiation").length};
  summary.textContent="Đã đọc "+new Intl.NumberFormat("vi-VN").format(last.scannedChars)+" ký tự. "+(last.totalFindings?"Tìm thấy "+last.totalFindings+" dấu hiệu: "+counts.critical+" nghiêm trọng, "+counts.high+" cảnh báo cao, "+counts.medium+" cần rà soát, "+counts.low+" cần làm rõ. ":"")+(last.omittedFindings?"Hiển thị "+last.findings.length+" dấu hiệu ưu tiên; còn "+last.omittedFindings+" dấu hiệu chưa liệt kê. ":"")+last.note;
  renderSeverityPanel(last);
@@ -120,11 +165,10 @@ function run(){
   const askText=document.createElement("p");askText.textContent=f.question||"";ask.append(askLabel,askText);
   review.append(limit,ask);card.append(head,evidence,basis,sources,review);list.append(card);
  });
- report.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
 }
-$("runCheck").addEventListener("click",run);
-input.addEventListener("input",()=>{report.hidden=true;last=null;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;});
-contractType.addEventListener("change",()=>{report.hidden=true;last=null;download.disabled=true;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;$("aiHrBox").hidden=true;$("aiHrConsent").checked=false;});
+runButton.addEventListener("click",run);
+input.addEventListener("input",()=>{invalidate();report.hidden=true;last=null;download.disabled=true;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;});
+contractType.addEventListener("change",()=>{invalidate();report.hidden=true;last=null;download.disabled=true;if(printButton)printButton.disabled=true;if(severityPanel)severityPanel.hidden=true;$("aiHrBox").hidden=true;$("aiHrConsent").checked=false;});
 download.addEventListener("click",()=>{
  if(!last)return;
  const counts=last.severityCounts||{high:0,medium:last.findings.filter(f=>f.kind==="legal").length,low:last.findings.filter(f=>f.kind==="negotiation").length};

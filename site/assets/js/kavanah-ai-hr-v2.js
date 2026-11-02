@@ -71,7 +71,8 @@ function init(){
     });
     box.hidden=false;sync();
   }
-  run.addEventListener("click",refresh);
+  run.addEventListener("click",reset);
+  document.addEventListener("kavanah:check-complete",refresh);
   input.addEventListener("input",reset);
   contractType.addEventListener("change",reset);
   select.addEventListener("change",()=>{result.replaceChildren();sync();});

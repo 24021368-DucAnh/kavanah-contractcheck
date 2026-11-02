@@ -1,5 +1,13 @@
 # Source snapshot record
 
+## Update 2026-11-02 — rule-check progress
+
+- Live homepage: WebsitePublisher version 74, hash `4c348a52`, at https://project29280.websitepublisher.ai/index.html.
+- Replaced existing assets: `css/kavanah-design-v3.css` hash `68c5a312`; `js/contract-check-ui-v7.js` hash `25553b54`; `js/kavanah-ai-hr-v2.js` hash `a425389f`. Asset count remains 24/25.
+- `site/pages/index.html` matches the live v74 page. The branch also brings the repository's older homepage into line with live v73: the GitHub-hosted tutorial video and the disabled AI Cloud control. No AI Cloud code was published.
+- The rule checker shows a minimum five-second progress sequence for valid input, then reveals the report. Empty or invalid input gets immediate guidance. Editing the text or changing contract type cancels the pending result.
+- Live checks: desktop and 390px mobile; waiting state, result timing, cancellation, invalid input, and a finding with optional HR prompt. Browser error log was empty. The checks used invented contract text.
+
 Captured: 2026-10-26  
 Source platform: WebsitePublisher project `29280`  
 Live website: https://project29280.websitepublisher.ai/index.html  
