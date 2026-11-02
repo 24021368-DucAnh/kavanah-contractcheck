@@ -330,19 +330,9 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <label for="clause">Văn bản hợp đồng đã trích xuất hoặc nhập trực tiếp</label>
 <textarea id="clause" maxlength="120000" placeholder="Dán nội dung hợp đồng tại đây…" aria-describedby="privacy"></textarea>
 <div class="utility-row"><span id="count" class="charcount">0 / 120.000 ký tự</span></div>
-<label class="cloud-ai-inline-consent"><input type="checkbox" id="cloudAiConsent"> Rà soát thêm bằng AI đám mây</label>
-<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck"><span id="runCheckLabel">Kiểm tra bằng luật + AI ↗</span><span id="runCheckSpinner" class="run-check-spinner" aria-hidden="true" hidden></span></button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
+<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck"><span id="runCheckLabel">Kiểm tra hợp đồng ↗</span><span id="runCheckSpinner" class="run-check-spinner" aria-hidden="true" hidden></span></button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
 <div class="tool-message" id="toolMessage" role="status" aria-live="polite"></div>
-<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ KẾT HỢP · LUẬT CỨNG + AI</span><h3 id="checkReportTitle">Kiểm tra hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><section class="ai-hr" id="aiHrBox" hidden aria-labelledby="aiHrTitle">
-  <div class="ai-hr-top"><div><span class="sample-label">AI HỖ TRỢ · TÙY CHỌN</span>
-    <h3 id="aiHrTitle">Chuẩn bị trao đổi với nhân sự.</h3></div><span class="ai-hr-state">Groq AI · Theo yêu cầu</span></div>
-  <p class="ai-hr-desc">AI có thể gợi ý câu hỏi hoặc bước tiếp theo từ dấu hiệu đã phát hiện. Khi bạn đồng ý, KAVANAH chỉ gửi mã dấu hiệu hoặc danh sách mã tới Groq; <strong>không gửi hợp đồng, tệp hay trích đoạn.</strong> Gợi ý không phải kết luận vi phạm. <a href="/quyen-rieng-tu.html" style="text-decoration:underline;text-underline-offset:3px">Xem quyền riêng tư ↗</a></p>
-  <span class="ai-hr-label">Dấu hiệu muốn trao đổi</span>
-  <div class="ai-topic-picker"><span class="ai-topic-eyebrow">ĐÃ TÌM THẤY TRONG VĂN BẢN</span><div id="aiRiskChoices" class="ai-risk-choices" role="radiogroup" aria-label="Chọn dấu hiệu đã phát hiện cần trao đổi"></div><select id="aiRiskCode" class="ai-topic-native" aria-hidden="true" tabindex="-1" aria-label="Dấu hiệu AI đang chọn"></select><p class="ai-topic-help">Các mục lấy từ kết quả kiểm tra phía trên. Đây là dấu hiệu cần đối chiếu, <strong>chưa phải kết luận vi phạm.</strong></p></div>
-  <label class="ai-hr-consent"><input type="checkbox" id="aiHrConsent"> Tôi hiểu đây là gợi ý chung do AI tạo và đồng ý gửi một hoặc nhiều mã loại dấu hiệu đến WebsitePublisher / Groq để xử lý.</label>
-  <button type="button" class="primary-btn ai-hr-trigger" id="aiHrAsk" disabled>Gợi ý thêm bằng AI</button>
-  <div class="ai-hr-result" id="aiHrResult" role="status" aria-live="polite"></div><button type="button" class="subtle-button ai-plan-trigger" id="aiPlanAsk" disabled>AI gợi ý các bước tiếp theo</button><div class="ai-hr-result ai-plan-result" id="aiPlanResult" role="status" aria-live="polite"></div>
-</section><section class="cloud-ai-box" id="cloudAiBox" hidden><div class="cloud-ai-result" id="cloudAiResult" role="status" aria-live="polite"></div></section><p class="screen-limit">Kết quả là gợi ý rà soát, không thay thế việc đối chiếu căn cứ pháp luật và hoàn cảnh thực tế.</p><div class="screen-actions"><button class="subtle-button" type="button" id="downloadCheck">Tải kết quả .txt</button><button class="subtle-button" type="button" id="printCheck" disabled>In / Lưu PDF</button><a href="/tra-cuu-phap-luat.html">Tra cứu pháp luật ↗</a></div></section>
+<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ KẾT HỢP · LUẬT CỨNG + AI</span><h3 id="checkReportTitle">Kiểm tra hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><section id="contractScore" class="contract-score" hidden aria-labelledby="contractScoreTitle"></section><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><p class="screen-limit">Kết quả là gợi ý rà soát, không thay thế việc đối chiếu căn cứ pháp luật và hoàn cảnh thực tế.</p><div class="screen-actions"><button class="subtle-button" type="button" id="downloadCheck">Tải kết quả .txt</button><button class="subtle-button" type="button" id="printCheck" disabled>In / Lưu PDF</button><a href="/tra-cuu-phap-luat.html">Tra cứu pháp luật ↗</a></div></section>
 <div id="samplePanel" class="sample-panel" aria-live="polite"></div>
 <p id="privacy" class="tool-caution">Tệp được đọc trên thiết bị, không tự tải lên máy chủ. Báo cáo tải về có thể chứa nội dung hợp đồng.</p>
 </div>
@@ -517,11 +507,10 @@ async function readFile(file){
 
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/contract-check-v7.js?v=7" integrity="sha384-tY3Ml+jAZ5sGmsqSGO+eJG/BZi8WfPwIda0ouGVS5arrsCRZ7LjQmkxosYiFq1qF" crossorigin="anonymous" defer></script>
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/commercial-check.js?v=3" integrity="sha384-7gEqO8hTu2C1K3h/HdJgNVxs2L4SPuH9wW8iXGfuAUZDfBPqdFkqCrlowcr2i7hX" crossorigin="anonymous" defer></script>
-<script src="../assets/js/contract-check-ui-v7.js?v=8" defer></script>
+<script src="../assets/js/contract-check-ui-v7.js?v=17" defer></script>
 <script src="https://cdn.websitepublisher.ai/js/sapi-client.js" defer></script>
-<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/kavanah-ai-hr-v2.js?v=4" integrity="sha384-ZU2zw0vja0hNS2VOgiiT9hVKb9LeDwDXDAQRIII9/1cw+kISbdmPmK87Fe8wjXUW" crossorigin="anonymous" defer></script>
 <script src="../assets/js/kavanah-local-config.js" defer></script>
-<script src="../assets/js/kavanah-ai-cloud-v1.js?v=2" defer></script>
+<script src="../assets/js/kavanah-ai-cloud-v1.js?v=14" defer></script>
 <script src="../assets/js/auth-demo-v1.js?v=1" defer></script>
 
 
@@ -540,37 +529,6 @@ async function readFile(file){
 })();
  const pasteLink=document.getElementById("heroPaste");
  pasteLink?.addEventListener("click",()=>document.getElementById("modePaste")?.click());
-})();
-</script>
-<script>
-(function(){
-"use strict";
-const select=document.getElementById("aiRiskCode");
-const group=document.getElementById("aiRiskChoices");
-if(!select||!group)return;
-function paint(){
- const active=select.value;
- const fragment=document.createDocumentFragment();
- Array.from(select.options).forEach((option,index)=>{
-  const button=document.createElement("button");
-  button.type="button";button.className="ai-risk-choice";button.setAttribute("role","radio");
-  button.setAttribute("aria-checked",String(option.value===active));button.textContent=option.textContent;
-  button.addEventListener("click",()=>{select.value=option.value;select.dispatchEvent(new Event("change",{bubbles:true}));paint();});
-  button.addEventListener("keydown",event=>{
-   if(!["ArrowRight","ArrowDown","ArrowLeft","ArrowUp","Home","End"].includes(event.key))return;
-   const buttons=Array.from(group.querySelectorAll(".ai-risk-choice"));if(!buttons.length)return;
-   let next=index;
-   if(event.key==="ArrowRight"||event.key==="ArrowDown")next=(index+1)%buttons.length;
-   else if(event.key==="ArrowLeft"||event.key==="ArrowUp")next=(index+buttons.length-1)%buttons.length;
-   else if(event.key==="Home")next=0;else next=buttons.length-1;
-   event.preventDefault();buttons[next].focus();buttons[next].click();
-  });
-  fragment.append(button);
- });
- group.replaceChildren(fragment);
-}
-const observer=new MutationObserver(paint);observer.observe(select,{childList:true,subtree:true});
-select.addEventListener("change",paint);paint();
 })();
 </script>
 </body></html>
