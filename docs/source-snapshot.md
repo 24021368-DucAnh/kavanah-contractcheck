@@ -8,6 +8,13 @@
 - The rule checker shows a minimum five-second progress sequence for valid input, then reveals the report. Empty or invalid input gets immediate guidance. Editing the text or changing contract type cancels the pending result.
 - Live checks: desktop and 390px mobile; waiting state, result timing, cancellation, invalid input, and a finding with optional HR prompt. Browser error log was empty. The checks used invented contract text.
 
+## Update 2026-11-02 — remove Cloud AI
+
+- Live homepage: WebsitePublisher version 75, hash `830f88cb`.
+- Removed the Cloud AI panel and direct Groq browser caller from the homepage source; removed the repository's Cloud AI script and placeholder API-key config example. The optional HR assistant remains separate and uses WebsitePublisher with risk codes after consent.
+- Replaced existing CSS and UI assets: `css/kavanah-design-v3.css` hash `e68de7e9`; `js/contract-check-ui-v7.js` hash `59bfcab0`. Asset count remains 24/25.
+- The five-second local rule-check flow remains on the live page. AI Cloud is not loaded and full contract text is not sent to Groq by the rule-check flow.
+
 Captured: 2026-10-26  
 Source platform: WebsitePublisher project `29280`  
 Live website: https://project29280.websitepublisher.ai/index.html  
