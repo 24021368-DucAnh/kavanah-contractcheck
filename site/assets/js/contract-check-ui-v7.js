@@ -1,7 +1,23 @@
 (function(){
 "use strict";
 const $=id=>document.getElementById(id),input=$("clause"),contractType=$("contractType"),report=$("checkReport"),summary=$("checkSummary"),list=$("checkFindings"),download=$("downloadCheck"),printButton=$("printCheck");
-let last=null;
+const runButton=$("runCheck"),runLabel=$("runCheckLabel"),runSpinner=$("runCheckSpinner"),progress=$("checkProgress"),progressStatus=$("checkProgressStatus");
+const steps=progress?[...progress.querySelectorAll("[data-check-step]")]:[];
+let last=null,busy=false,runToken=0;
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+function stage(index){
+ steps.forEach((step,i)=>{
+  step.classList.toggle("is-current",i===index);
+  step.classList.toggle("is-complete",i<index);
+  if(i===index)step.setAttribute("aria-current","step");else step.removeAttribute("aria-current");
+ });
+ if(progressStatus)progressStatus.textContent=steps[index]?.dataset.checkStep||"";
+}
+function stopProgress(){
+ busy=false;runButton.disabled=false;runButton.removeAttribute("aria-busy");
+ runLabel.textContent="Kiểm tra bằng luật ↗";runSpinner.hidden=true;progress.hidden=true;
+}
+function invalidate(){runToken++;if(busy)stopProgress();}
 if(printButton){printButton.disabled=true;printButton.addEventListener("click",()=>{if(last&&!report.hidden&&typeof window.print==="function")window.print();});}
 const severityPanel=$("severityPanel");
 function renderSeverityPanel(data){
