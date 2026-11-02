@@ -249,7 +249,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
  a{color:#123E50!important;text-decoration:underline!important}
 }
 </style>
-<link rel="stylesheet" href="https://cdn.websitepublisher.ai/custom/wid29280/css/kavanah-design-v3.css?v=4">
+<link rel="stylesheet" href="https://cdn.websitepublisher.ai/custom/wid29280/css/kavanah-design-v3.css?v=rule-progress-1">
 <link rel="stylesheet" href="https://cdn.websitepublisher.ai/custom/wid29280/css/kavanah-showcase-v1.css?v=2" integrity="sha384-bUJBj0LfmR8cFpCoEB0Bv0lw8lhXk8rekInSkoCvXKouyuV34ip55togRaO2BoZT" crossorigin="anonymous">
 <style>
 .hero-pitch .hero-layout.hero-layout-single{grid-template-columns:1fr;max-width:920px}
@@ -271,7 +271,7 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 </head>
 <body>
 <header class="top"><div class="shell top-inner">
-<a class="brand" href="index.html" aria-label="KAVANAH — về trang chủ"><img width="124" height="62" src="../assets/images/kavanah-logo-nhom.png" alt="Logo KAVANAH"><span class="brand-name">KAVANAH<small>CONTRACTCHECK AI</small></span></a>
+<a class="brand" href="index.html" aria-label="KAVANAH — về trang chủ"><img width="124" height="62" src="https://cdn.websitepublisher.ai/custom/wid29280/images/kavanah-logo-nhom.png" alt="Logo KAVANAH"><span class="brand-name">KAVANAH<small>CONTRACTCHECK AI</small></span></a>
 <button class="menu-toggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navigation" id="menuToggle" type="button">☰</button>
 <nav class="navigation" id="navigation" aria-label="Điều hướng chính"><a href="index.html#san-pham">Kiểm tra hợp đồng</a><a href="tra-cuu-phap-luat.html">Tra cứu luật</a><button class="auth-trigger" id="authOpen" type="button">Đăng nhập</button><span class="auth-user" id="authUser"><span id="authUserName"></span><button id="authLogout" type="button">Đăng xuất</button></span><a href="index.html#san-pham" class="small-cta">Bắt đầu kiểm tra ↗</a></nav>
 </div></header>
@@ -293,7 +293,8 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <p class="overline">KAVANAH / KIỂM TRA HỢP ĐỒNG</p>
 <h1 class="hero-title">Đọc rõ hợp đồng.<br><em>Biết điều cần hỏi.</em></h1>
 <p class="hero-copy">Tải hợp đồng hoặc dán văn bản để xem điểm cần rà soát.</p>
-<video class="tutorial-video" controls preload="metadata" aria-label="Video hướng dẫn sử dụng KAVANAH"><source src="../assets/videos/kavanah-huong-dan.mp4" type="video/mp4">Trình duyệt của bạn không hỗ trợ phát video.</video>
+<video class="tutorial-video" controls playsinline preload="metadata" aria-label="Video hướng dẫn sử dụng KAVANAH"><source src="https://raw.githubusercontent.com/24021368-DucAnh/kavanah-contractcheck/4aece628b98ab85d1716dce467a15a6fa3c0db25/site/assets/videos/kavanah-huong-dan.mp4" type="video/mp4">Trình duyệt không hỗ trợ trình phát video. <a href="https://github.com/24021368-DucAnh/kavanah-contractcheck/blob/4aece628b98ab85d1716dce467a15a6fa3c0db25/site/assets/videos/kavanah-huong-dan.mp4" target="_blank" rel="noopener noreferrer">Xem video hướng dẫn trên GitHub</a>.</video>
+<p class="tutorial-video-help"><a href="https://github.com/24021368-DucAnh/kavanah-contractcheck/blob/4aece628b98ab85d1716dce467a15a6fa3c0db25/site/assets/videos/kavanah-huong-dan.mp4" target="_blank" rel="noopener noreferrer">Nếu video không phát được, xem video gốc trên GitHub.</a></p>
 <div class="hero-actions">
 <a class="primary-btn" href="#san-pham">Bắt đầu kiểm tra <span aria-hidden="true">↓</span></a>
 
@@ -330,10 +331,16 @@ body{font-family:"Be Vietnam Pro",sans-serif;font-size:13px;line-height:1.85;fon
 <label for="clause">Văn bản hợp đồng đã trích xuất hoặc nhập trực tiếp</label>
 <textarea id="clause" maxlength="120000" placeholder="Dán nội dung hợp đồng tại đây…" aria-describedby="privacy"></textarea>
 <div class="utility-row"><span id="count" class="charcount">0 / 120.000 ký tự</span></div>
-<label class="cloud-ai-inline-consent"><input type="checkbox" id="cloudAiConsent"> Rà soát thêm bằng AI đám mây</label>
-<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck"><span id="runCheckLabel">Kiểm tra bằng luật + AI ↗</span><span id="runCheckSpinner" class="run-check-spinner" aria-hidden="true" hidden></span></button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
+
+<div class="tool-actions"><button class="primary-btn" type="button" id="runCheck"><span id="runCheckLabel">Kiểm tra bằng luật ↗</span><span id="runCheckSpinner" class="run-check-spinner" aria-hidden="true" hidden></span></button><button class="subtle-button" type="button" id="clearInput">Xóa nội dung</button></div>
 <div class="tool-message" id="toolMessage" role="status" aria-live="polite"></div>
-<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ KẾT HỢP · LUẬT CỨNG + AI</span><h3 id="checkReportTitle">Kiểm tra hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><section class="ai-hr" id="aiHrBox" hidden aria-labelledby="aiHrTitle">
+<section class="check-progress" id="checkProgress" hidden aria-labelledby="checkProgressTitle">
+ <div class="check-progress-head"><span class="check-progress-mark" aria-hidden="true"></span><h3 id="checkProgressTitle">Đang rà soát hợp đồng</h3></div>
+ <p class="check-progress-note">Kiểm tra theo các quy tắc đang hỗ trợ trên thiết bị của bạn; đây không phải quá trình AI suy nghĩ hay kết luận pháp lý.</p>
+ <ol class="check-progress-steps" aria-hidden="true"><li data-check-step="Đang đọc văn bản">Đang đọc văn bản</li><li data-check-step="Đang đối chiếu các dấu hiệu">Đang đối chiếu các dấu hiệu</li><li data-check-step="Đang tổng hợp kết quả">Đang tổng hợp kết quả</li></ol>
+ <span id="checkProgressStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
+</section>
+<section class="screen-report" id="checkReport" hidden aria-labelledby="checkReportTitle"><div class="screen-head"><div><span class="sample-label">KẾT QUẢ KIỂM TRA THEO QUY TẮC</span><h3 id="checkReportTitle">Kiểm tra hợp đồng</h3></div><span class="screen-pill">Đánh giá theo mức độ</span></div><p id="checkSummary" role="status" aria-live="polite"></p><div id="severityPanel" class="severity-panel" hidden aria-label="Tổng quan và bộ lọc mức cảnh báo"></div><div id="checkFindings"></div><section class="ai-hr" id="aiHrBox" hidden aria-labelledby="aiHrTitle">
   <div class="ai-hr-top"><div><span class="sample-label">AI HỖ TRỢ · TÙY CHỌN</span>
     <h3 id="aiHrTitle">Chuẩn bị trao đổi với nhân sự.</h3></div><span class="ai-hr-state">Groq AI · Theo yêu cầu</span></div>
   <p class="ai-hr-desc">AI có thể gợi ý câu hỏi hoặc bước tiếp theo từ dấu hiệu đã phát hiện. Khi bạn đồng ý, KAVANAH chỉ gửi mã dấu hiệu hoặc danh sách mã tới Groq; <strong>không gửi hợp đồng, tệp hay trích đoạn.</strong> Gợi ý không phải kết luận vi phạm. <a href="/quyen-rieng-tu.html" style="text-decoration:underline;text-underline-offset:3px">Xem quyền riêng tư ↗</a></p>
@@ -517,12 +524,10 @@ async function readFile(file){
 
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/contract-check-v7.js?v=7" integrity="sha384-tY3Ml+jAZ5sGmsqSGO+eJG/BZi8WfPwIda0ouGVS5arrsCRZ7LjQmkxosYiFq1qF" crossorigin="anonymous" defer></script>
 <script src="https://cdn.websitepublisher.ai/custom/wid29280/js/commercial-check.js?v=3" integrity="sha384-7gEqO8hTu2C1K3h/HdJgNVxs2L4SPuH9wW8iXGfuAUZDfBPqdFkqCrlowcr2i7hX" crossorigin="anonymous" defer></script>
-<script src="../assets/js/contract-check-ui-v7.js?v=8" defer></script>
+<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/contract-check-ui-v7.js?v=rule-progress-1" defer></script>
 <script src="https://cdn.websitepublisher.ai/js/sapi-client.js" defer></script>
-<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/kavanah-ai-hr-v2.js?v=4" integrity="sha384-ZU2zw0vja0hNS2VOgiiT9hVKb9LeDwDXDAQRIII9/1cw+kISbdmPmK87Fe8wjXUW" crossorigin="anonymous" defer></script>
-<script src="../assets/js/kavanah-local-config.js" defer></script>
-<script src="../assets/js/kavanah-ai-cloud-v1.js?v=2" defer></script>
-<script src="../assets/js/auth-demo-v1.js?v=1" defer></script>
+<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/kavanah-ai-hr-v2.js?v=rule-progress-1" integrity="sha384-TjLuDTMoEoYGGg8oXFiVmG4tGNhaisdIaMOPpsfWCxdjh9Lf5ZXmCKAbUJesd+oW" crossorigin="anonymous" defer></script>
+<script src="https://cdn.websitepublisher.ai/custom/wid29280/js/auth-demo-v1.js?v=4aece62" defer></script>
 
 
 
